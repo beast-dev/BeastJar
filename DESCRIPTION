@@ -16,4 +16,4 @@ LazyData: true
 Imports:
     rJava
 URL: https://github.com/beast-mcmc/BeastMcmc
-    
+RoxygenNote: 6.1.1
