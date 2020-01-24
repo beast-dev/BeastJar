@@ -1,0 +1,19 @@
+Package: BeastMcmc
+Type: Package
+Title: MCMC using BEAST
+Version: 10.1.0
+Author@R: c(
+    person("Marc A.", "Suchard", email = "msuchard@ucla.edu", role = c("aut","cre")),
+    person("Alexei J.", "Drummond", role = "cph"),
+    person("Andrew", "Rambaut", role = "cph")
+    )
+Description: This inference wrapper provides access to the Markov chain Monte Carlo
+    library of the popular Bayesian Evolutionary Analysis by Sampling Trees (BEAST)
+    software.
+License: Apache License 2.0
+Encoding: UTF-8
+LazyData: true
+Imports:
+    rJava
+URL: https://github.com/beast-mcmc/BeastMcmc
+    
