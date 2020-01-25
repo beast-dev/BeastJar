@@ -3,7 +3,7 @@
 #' BeastMcmc
 #'
 #' @docType package
-#' @name BeastMcmc
+#' @name BeastJar
 #' @import rJava
 NULL
 

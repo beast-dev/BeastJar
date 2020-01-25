@@ -1,19 +1,24 @@
-Package: BeastMcmc
+Package: BeastJar
 Type: Package
-Title: MCMC using BEAST
-Version: 10.1.0
-Author@R: c(
-    person("Marc A.", "Suchard", email = "msuchard@ucla.edu", role = c("aut","cre")),
-    person("Alexei J.", "Drummond", role = "cph"),
-    person("Andrew", "Rambaut", role = "cph")
+Title: JAR Dependency for MCMC Using BEAST 
+Version: 1.10.5
+Authors@R: c(
+    person("Marc A.", "Suchard", email = "msuchard@ucla.edu", role = c("aut","cre","cph")),
+    person("Andrew", "Rambaut", role = "cph"),      
+    person("Alexei J.", "Drummond", role = "cph")
     )
-Description: This inference wrapper provides access to the Markov chain Monte Carlo
-    library of the popular Bayesian Evolutionary Analysis by Sampling Trees (BEAST)
-    software.
+Description: Provides JAR to perform Markov chain Monte Carlo (MCMC) inference using
+    the popular Bayesian Evolutionary Analysis by Sampling Trees (BEAST) software library.
+    BEAST supports auto-tuning Metropolis-Hastings, slice, Hamiltonian Monte Carlo 
+    and Sequential Monte Carlo sampling for a large variety of composible standard and 
+    phylogenetic statistical models using high performance computing.  By placing the 
+    BEAST JAR in this package, we offer an efficient distribution system for BEAST use 
+    by other R packages using CRAN.
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
 Imports:
     rJava
-URL: https://github.com/beast-mcmc/BeastMcmc
+URL: https://github.com/beast-mcmc/BeastJar
+Copyright: See file COPYRIGHTS
 RoxygenNote: 6.1.1
