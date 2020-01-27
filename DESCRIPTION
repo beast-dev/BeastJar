@@ -22,3 +22,5 @@ Imports:
 URL: https://github.com/beast-mcmc/BeastJar
 Copyright: See file COPYRIGHTS
 RoxygenNote: 6.1.1
+Suggests: 
+    testthat

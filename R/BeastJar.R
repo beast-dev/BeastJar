@@ -25,7 +25,12 @@ NULL
 simulateNormalDistribution <- function(mean = 0,
                                        sd = 1,
                                        chainLength = 10000,
-                                       subSampleFrequency = 10) {
+                                       subSampleFrequency = 10,
+                                       seed = NULL) {
+
+  if (!is.null(seed)) {
+    rJava::J("dr.math.MathUtils")$setSeed(rJava::.jlong(seed));
+  }
 
   distribution <- rJava::.jnew("dr.math.distributions.NormalDistribution",
                                as.numeric(mean), as.numeric(sd))
@@ -65,6 +70,7 @@ simulateNormalDistribution <- function(mean = 0,
   memoryLogger$add(parameter)
 
   mcmc <- rJava::.jnew("dr.inference.mcmc.MCMC", "mcmc1")
+  mcmc$setShowOperatorAnalysis(FALSE)
 
   mcmcOptions <- rJava::.jnew("dr.inference.mcmc.MCMCOptions",
                               rJava::.jlong(chainLength),
