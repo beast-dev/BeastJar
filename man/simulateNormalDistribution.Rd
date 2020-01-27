@@ -5,7 +5,7 @@
 \title{Example MCMC simulation using BEAST}
 \usage{
 simulateNormalDistribution(mean = 0, sd = 1, chainLength = 10000,
-  subSampleFrequency = 10)
+  subSampleFrequency = 10, seed = NULL)
 }
 \arguments{
 \item{mean}{Mean of target normal distribution}
@@ -15,6 +15,8 @@ simulateNormalDistribution(mean = 0, sd = 1, chainLength = 10000,
 \item{chainLength}{Markov chain length to simulate}
 
 \item{subSampleFrequency}{Frequency at which to retain samples from the Markov chain}
+
+\item{seed}{Pseudo-random number generator seed (`NULL` sets based on current time)}
 }
 \description{
 This function generates a Markov chain to sample from a simple normal distribution.

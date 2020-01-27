@@ -20,6 +20,7 @@ NULL
 #' @param sd  Standard deviation of target normal distribution
 #' @param chainLength Markov chain length to simulate
 #' @param subSampleFrequency Frequency at which to retain samples from the Markov chain
+#' @param seed Pseudo-random number generator seed (`NULL` sets based on current time)
 
 #' @export
 simulateNormalDistribution <- function(mean = 0,
