@@ -1,6 +1,6 @@
 
 
-#' BeastMcmc
+#' BeastJar
 #'
 #' @docType package
 #' @name BeastJar
