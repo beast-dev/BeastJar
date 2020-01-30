@@ -99,5 +99,16 @@ simulateNormalDistribution <- function(mean = 0,
 
   sample <- rJava::J("dr.inference.trace.Trace")$toArray(obj)
 
+  outputStream <- rJava::.jnew("java.io.ByteArrayOutputStream")
+  printStream <- rJava::.jnew("java.io.PrintStream",
+                              rJava::.jcast(outputStream, "java.io.OutputStream"))
+
+  rJava::J("dr.inference.operators.OperatorAnalysisPrinter")$showOperatorAnalysis(
+    printStream, schedule, TRUE)
+
+  operatorAnalysisString <- outputStream$toString("UTF8")
+
+  attr(sample, "operatorAnalysis") <- operatorAnalysisString
+
   return(sample)
 }
