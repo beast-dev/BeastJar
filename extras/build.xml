@@ -1,0 +1,233 @@
+<!--
+  ~ build.xml
+  ~
+  ~ Copyright (c) 2002-2020 Alexei Drummond, Andrew Rambaut and Marc Suchard
+  ~
+  ~ This file is part of BEAST.
+  ~ See the NOTICE file distributed with this work for additional
+  ~ information regarding copyright ownership and licensing.
+  ~
+  ~ BEAST is free software; you can redistribute it and/or modify
+  ~ it under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2
+  ~ of the License, or (at your option) any later version.
+  ~
+  ~  BEAST is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~  GNU Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with BEAST; if not, write to the
+  ~ Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+  ~ Boston, MA  02110-1301  USA
+  -->
+
+<!-- Build BeastJar -->
+<project basedir="." default="dist" name="BEAST">
+    <description>
+        Build BeastJar
+        $Id$
+    </description>
+
+    <property name="JDK_SOURCE_VERSION" value="1.8"/>
+    <property name="JDK_TARGET_VERSION" value="1.8"/>
+    <property name="repodir" value="../../BEAST"/>
+
+    <!-- set global properties for this build -->
+    <property name="src" location="${repodir}/src"/>
+    <property name="build" location="build"/>
+    <property name="lib" location="${repodir}/lib"/>
+    <property name="dist" location="${build}/dist"/>
+
+    <property name="main_class_BEAST" value="dr.app.beast.BeastMain"/>
+
+    <path id="classpath">
+       <!-- <fileset dir="${lib}" includes="**/*.jar"/> -->
+        <fileset dir="${lib}" includes="jebl.jar"/>
+        <!-- <fileset dir="${lib}" includes="jam.jar"/> -->
+        <fileset dir="${lib}" includes="jdom.jar"/>
+        <fileset dir="${lib}" includes="commons-math-2.2.jar"/>
+        <fileset dir="${lib}" includes="mtj.jar"/>
+        <fileset dir="${lib}" includes="mpj.jar"/>
+        <!-- <fileset dir="${lib}" includes="JRI.jar"/> -->
+        <fileset dir="${lib}" includes="colt.jar"/>
+        <fileset dir="${lib}" includes="beagle.jar"/>
+        <fileset dir="${lib}" includes="EJML-core-0.30.jar"/>
+        <fileset dir="${lib}" includes="lbfgs4j-0.2.1.jar"/>
+        <fileset dir="${lib}" includes="EJML-dense64-0.30.jar"/>
+        <!-- <fileset dir="${lib}" includes="junit-4.4.jar"/> -->
+    </path>
+
+    <!-- start -->
+    <target name="init">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+    </target>
+
+    <!-- compile Java source code -->
+    <target name="compile-all" depends="init">
+        <mkdir dir="${build}"/>
+
+        <!-- Compile the java code from ${src} into ${build} /bin -->
+        <javac source="${JDK_SOURCE_VERSION}" target="${JDK_TARGET_VERSION}" sourcepath="" srcdir="${src}" destdir="${build}"
+               classpathref="classpath"
+               fork="true"
+               includeantruntime="false"
+               memoryinitialsize="256m"
+               memorymaximumsize="1024m">
+<!--           	<src path="${src}"/> -->
+           <!-- <include name="dr/app/beast/**"/> -->
+     <!--       <include name="dr/app/beauti/**"/> -->
+            <!--<include name="dr/app/bss/**"/> -->
+            <!--<include name="dr/app/checkpoint/**"/>-->
+            <!-- <include name="dr/app/gui/**"/> -->
+    <!--        <include name="dr/app/oldbeauti/**"/> -->
+<!--            <include name="dr/app/beagle/**"/> -->
+    <!--        <include name="dr/app/seqgen/**"/> -->
+            <!-- <include name="dr/app/plugin/**"/> -->
+         <!--   <include name="dr/app/realtime/**"/>-->
+          <!--  <include name="dr/app/tools/**"/>-->
+            <include name="dr/app/util/**"/>
+            <!-- <include name="dr/app/treestat/**"/> -->
+            <include name="dr/app/beast/BeastVersion.java"/>
+            <include name="dr/app/beast/BeastParser.java"/>
+            <include name="dr/app/tools/BeastParserDoc.java"/>
+            <include name="dr/app/tools/NexusExporter.java"/>
+            <include name="dr/app/beauti/util/CharSet.java"/>
+            <include name="dr/app/beauti/util/CharSetBlock.java"/>
+			<include name="dr/app/bss/XMLExporter.java"/>
+			<include name="dr/app/beauti/util/XMLWriter.java"/>
+            <!--<include name="dr/app/beauti/util/NexusApplicationImporter.java"/>-->
+            <!--<include name="dr/app/beauti/util/NexusApplicationImporter.java"/>-->
+			<include name="dr/app/gui/ColorFunction.java"/>
+			<include name="dr/app/gui/chart/LinearAxis.java"/>
+			<include name="dr/app/gui/chart/Axis.java"/>
+			<include name="dr/app/gui/chart/ChartRuntimeException.java"/>
+
+
+			<exclude name="dr/evomodel/branchmodel/lineagespecific/**"/>
+			<exclude name="dr/evoxml/MicrosatelliteSimulatorParser.java"/>
+
+			<exclude name="dr/geo/contouring/ContourWithR.java"/>
+
+            <include name="dr/evolution/**"/>
+            <include name="dr/evomodel/**"/>
+            <include name="dr/evomodelxml/**"/>
+            <include name="dr/oldevomodel/**"/>
+            <include name="dr/oldevomodelxml/**"/>
+            <include name="dr/evoxml/**"/>
+            <include name="dr/exporters/**"/>
+            <!-- <include name="dr/gui/chart/**"/> -->
+            <!-- <include name="dr/gui/tree/**"/> -->
+            <include name="dr/inference/**"/>
+            <include name="dr/inferencexml/**"/>
+            <include name="dr/math/**"/>
+            <include name="dr/matrix/**"/>
+            <include name="dr/stats/**"/>
+            <include name="dr/util/**"/>
+            <include name="dr/xml/**"/>
+            <include name="dr/geo/**"/>
+            <!-- complie JUnit test classes -->
+           <!-- <include name="test/dr/**"/>-->
+
+        </javac>
+        <echo message="Successfully compiled."/>
+    </target>
+
+    <!-- make the beast.jar and beauti.jar -->
+    <target name="dist" depends="compile-all" description="create BEAST jar">
+        <!-- Create the distribution directory -->
+        <mkdir dir="${dist}"/>
+
+        <!-- Put everything in ${build} into the beast.jar file -->
+        <jar jarfile="${dist}/beast.jar">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="Main-Class" value="${main_class_BEAST}"/>
+            </manifest>
+            <fileset dir="${build}">
+                <include name="dr/app/beast/**/*.class"/>
+               <!-- <include name="dr/app/beauti/**/*.class"/> -->
+<!--                <include name="dr/app/bss/**/*.class"/> -->
+<!--                <include name="dr/app/checkpoint/**"/> -->
+<!--                <include name="dr/app/gui/**/*.class"/> -->
+<!--                <include name="dr/app/seqgen/**"/> -->
+<!--                <include name="dr/app/plugin/**"/> -->
+<!--                <include name="dr/app/realtime/**"/> -->
+<!--                <include name="dr/app/util/**/*.class"/> -->
+<!--                <include name="dr/app/tools/**/*.class"/> -->
+<!--                <include name="dr/app/treestat/**/*.class"/> -->
+                <include name="dr/app/beagle/**/*.class"/>
+                <!-- include beagle -->
+                <include name="dr/evolution/**/*.class"/>
+                <include name="dr/evoxml/**/*.class"/>
+                <include name="dr/evomodel/**/*.class"/>
+<!--                <include name="dr/evomodelxml/**/*.class"/> -->
+                <include name="dr/oldevomodel/**/*.class"/>
+<!--                <include name="dr/oldevomodelxml/**/*.class"/> -->
+<!--                <include name="dr/exporters/**/*.class"/> -->
+<!--                <include name="dr/gui/tree/**/*.class"/> -->
+                <include name="dr/inference/**/*.class"/>
+<!--                <include name="dr/inferencexml/**/*.class"/> -->
+                <include name="dr/math/**/*.class"/>
+                <include name="dr/matrix/**/*.class"/>
+                <include name="dr/stats/**/*.class"/>
+                <include name="dr/util/**/*.class"/>
+<!--                <include name="dr/xml/**/*.class"/> -->
+                <include name="dr/geo/**/*.class"/>
+            </fileset>
+            <!-- <fileset dir="">
+                <include name="images/*.png"/>
+            </fileset> -->
+            <fileset dir="${src}">
+                <!-- <include name="dr/**/*.png"/> -->
+                <!-- <include name="org/virion/jam/**/*.png"/> -->
+                <include name="dr/**/*.properties"/>
+            </fileset>
+            <zipgroupfileset dir="${lib}" includes="jebl.jar"/>
+            <!-- <zipgroupfileset dir="${lib}" includes="jam.jar"/> -->
+            <zipgroupfileset dir="${lib}" includes="jdom.jar"/>
+            <zipgroupfileset dir="${lib}" includes="commons-math-2.2.jar"/>
+            <zipgroupfileset dir="${lib}" includes="mtj.jar"/>
+            <!-- <zipgroupfileset dir="${lib}" includes="mpj.jar"/> -->
+            <!-- <zipgroupfileset dir="${lib}" includes="JRI.jar"/> -->
+            <zipgroupfileset dir="${lib}" includes="colt.jar"/>
+            <zipgroupfileset dir="${lib}" includes="beagle.jar"/>
+            <zipgroupfileset dir="${lib}" includes="EJML-core-0.30.jar"/>
+            <zipgroupfileset dir="${lib}" includes="lbfgs4j-0.2.1.jar"/>
+            <zipgroupfileset dir="${lib}" includes="EJML-dense64-0.30.jar"/>
+        </jar>
+    </target>
+
+    <property name="version" value="1.10.5pre"/>
+    <property name="jvm_version" value="1.7+"/>
+
+    <property name="version_number" value="1.10.5"/>
+    <property name="copyright" value="Copyright 2002-2019"/>
+
+    <property name="release_dir" value="release"/>
+    <property name="BEAST_name" value="BEAST"/>
+    <property name="BEAUti_name" value="BEAUti"/>
+    <property name="TreeAnnotator_name" value="TreeAnnotator"/>
+    <property name="LogCombiner_name" value="LogCombiner"/>
+    <property name="LogAnalyser_name" value="LogAnalyser"/>
+    <property name="TreeStat_name" value="TreeStat"/>
+
+    <property name="packaging_tools" value="packaging_tools" />
+    <property name="common_dir" value="${release_dir}/common"/>
+
+    <property name="Mac_dir" value="${release_dir}/Mac"/>
+    <property name="Linux_dir" value="${release_dir}/Linux"/>
+    <property name="Windows_dir" value="${release_dir}/Windows"/>
+    <property name="Windows_launchers_dir" value="${release_dir}/Windows_Launchers"/>
+
+    <property name="Mac_package_dir" value="${Mac_dir}/${BEAST_name} v${version}"/>
+    <property name="Linux_package_dir" value="${Linux_dir}/${BEAST_name}v${version}"/>
+    <property name="Windows_package_dir" value="${Windows_dir}/${BEAST_name} v${version}"/>
+    <property name="Windows_launchers_package_dir" value="${Windows_launchers_dir}/${BEAST_name} v${version}"/>
+
+</project>
