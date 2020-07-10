@@ -177,7 +177,7 @@
                 <include name="dr/matrix/**/*.class"/>
                 <include name="dr/stats/**/*.class"/>
                 <include name="dr/util/**/*.class"/>
-<!--                <include name="dr/xml/**/*.class"/> -->
+                <include name="dr/xml/**/*.class"/>
                 <include name="dr/geo/**/*.class"/>
             </fileset>
             <!-- <fileset dir="">
