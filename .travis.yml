@@ -7,10 +7,13 @@ r:
   - release
   - devel
 
-r_packages:
-  - rJava
+before_script:
+  - jdk_switcher use oraclejdk8
 
-dist: xenial
+#r_packages:
+#  - rJava
+
+dist: trusty
 
 addons:
   apt:
