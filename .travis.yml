@@ -11,3 +11,8 @@ r_packages:
   - rJava
 
 dist: xenial
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
