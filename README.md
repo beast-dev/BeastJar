@@ -1,7 +1,7 @@
 # BeastJar
 
 <!-- badges: start -->
-[![R build status](https://github.com/beast-mcmc/BeastJar/workflows/R-CMD-check/badge.svg)](https://github.com/beast-mcmc/BeastJar)
+[![R build status](https://github.com/beast-dev/BeastJar/workflows/R-CMD-check/badge.svg)](https://github.com/beast-dev/BeastJar)
 <!-- badges: end -->
 
 The goal of BeastJar is to ...
