@@ -4,7 +4,7 @@
 #'
 #' Convenient packaging of the Bayesian Evolutionary Analysis Sampling Trees (BEAST) software package
 #' to facilitate Markov chain Monte Carlo sampling techniques including Hamiltonian Monte Carlo,
-#' boucy particle sampling and zig-zag sampling.
+#' bouncy particle sampling and zig-zag sampling.
 #'
 #' @docType package
 #' @name BeastJar
