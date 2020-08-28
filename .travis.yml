@@ -9,3 +9,5 @@ r:
 
 r_packages:
   - rJava
+
+dist: xenial
