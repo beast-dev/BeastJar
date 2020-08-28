@@ -24,6 +24,9 @@ language: r
 sudo: false
 cache: packages
 
+jdk:
+  - oraclejdk8
+
 branches:
   except:
     - /^*-v[0-9]/
