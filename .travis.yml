@@ -2,10 +2,10 @@ language: r
 sudo: false
 cache: packages
 
-r:
-  - oldrel
-  - release
-  - devel
+#r:
+#  - oldrel
+#  - release
+#  - devel
 
 before_script:
   - jdk_switcher use oraclejdk8
@@ -13,9 +13,9 @@ before_script:
 #r_packages:
 #  - rJava
 
-dist: trusty
+#dist: trusty
 
-addons:
-  apt:
-    packages:
-      - oracle-java8-installer
+#addons:
+#  apt:
+#    packages:
+#      - oracle-java8-installer
