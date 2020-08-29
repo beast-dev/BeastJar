@@ -2,6 +2,7 @@
 ^\.Rproj\.user$
 extras
 .travis.yml
-^\.github
+^\.github$
 ^\.github/workflows/R-CMD-check\.yaml$
 cran-comments.md
+^CRAN-RELEASE$
