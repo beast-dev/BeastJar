@@ -72,6 +72,11 @@ jobs:
           unset JAVA_TOOL_OPTIONS
         shell: bash
 
+      - name: set environment variables
+        uses: allenevans/set-env@v1.0.0
+        with:
+          JAVA_TOOL_OPTIONS: ''
+
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
