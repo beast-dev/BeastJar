@@ -90,7 +90,6 @@ jobs:
         run: |
           unset JAVA_TOOL_OPTIONS
           Rscript -e 'rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")'
-        shell: bash
 
       - name: Upload check results
         if: failure()
