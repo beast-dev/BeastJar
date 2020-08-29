@@ -20,7 +20,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: windows-latest, r: 'release'}  # Does not appear to have rJava
+          - {os: windows-latest, r: 'release'}  # Does not appear to have Java 32-bit
           - {os: macOS-latest, r: 'release'}
           - {os: ubuntu-20.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
           - {os: ubuntu-20.04, r: 'devel', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
@@ -67,18 +67,11 @@ jobs:
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
-      - name: Install rJava
-        if: runner.os == 'Windows'
-        run: |
-          install.packages("rJava")
-        shell: Rscript {0}
-
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
         run: |
           Sys.unsetenv("JAVA_TOOL_OPTIONS")
-          #if (Sys.getenv("JAVA_HOME") != "") Sys.setenv(JAVA_HOME = "") # --no-multiarch
           rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran", "--no-multiarch"), error_on = "warning", check_dir = "check")
         shell: Rscript {0}
 
