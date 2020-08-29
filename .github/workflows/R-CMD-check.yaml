@@ -78,8 +78,8 @@ jobs:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
         run: |
           Sys.unsetenv("JAVA_TOOL_OPTIONS")
-          if (Sys.getenv("JAVA_HOME") != "") Sys.setenv(JAVA_HOME = "")
-          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
+          #if (Sys.getenv("JAVA_HOME") != "") Sys.setenv(JAVA_HOME = "") # --no-multiarch
+          rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran", "--no-multiarch"), error_on = "warning", check_dir = "check")
         shell: Rscript {0}
 
       - name: Upload check results
