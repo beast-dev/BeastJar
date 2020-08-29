@@ -77,12 +77,20 @@ jobs:
         with:
           JAVA_TOOL_OPTIONS: ''
 
+#      - name: Check
+#        env:
+#          _R_CHECK_CRAN_INCOMING_REMOTE_: false
+#          JAVA_TOOL_OPTIONS : ""
+#        run: rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
+#        shell: Rscript {0}
+
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
-          JAVA_TOOL_OPTIONS : ""
-        run: rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
-        shell: Rscript {0}
+        run: |
+          unset JAVA_TOOL_OPTIONS
+          Rscript -e 'rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")'
+        shell: bash
 
       - name: Upload check results
         if: failure()
