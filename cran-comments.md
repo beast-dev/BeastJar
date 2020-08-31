@@ -1,12 +1,18 @@
-## New submission
+## Re-submission following email from Uwe Ligges requesting fixes:
 
-## Message: `Package has FOSS license, installs .class/.jar but has no 'java' directory.`
+* Message: `Package has FOSS license, installs .class/.jar but has no 'java' directory.`
+  - Fixed with the inclusion of a `java` directory and example source code.
 
-This package provides a single JAR file that contains the open source
-and highly popular Bayesian Evolutionary Analysis by Sampling Trees (BEAST)
-software library.  By placing the BEAST JAR in this package, we offer an
-efficient distribution system for BEAST use by other R packages using
-CRAN.  See `inst/COPYRIGHTS` for source file information about BEAST.
+* Message: `Found the following (possibly) invalid URLs:` in `README.md`
+  - Fixed and apologies for missing this typo.
+
+* Message: `Size of tarball: 7273946 bytes`
+  - This package is a data package, similar to `xlsxjars` and `DatabaseConnectorJars`.
+    This package provides a single JAR file that contains the open source
+    and highly popular Bayesian Evolutionary Analysis by Sampling Trees (BEAST)
+    software library.  By placing the BEAST JAR in this package, we offer an
+    efficient distribution system for BEAST use by other R packages using
+    CRAN.  See `inst/COPYRIGHTS` for source file information about BEAST.
 
 ## Test environments
 * local OS X install, R 4.0.0
