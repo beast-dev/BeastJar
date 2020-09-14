@@ -21,6 +21,6 @@ Imports:
     rJava
 URL: https://github.com/beast-dev/BeastJar
 Copyright: See file COPYRIGHTS
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Suggests:
     testthat
