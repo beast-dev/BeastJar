@@ -1,8 +1,10 @@
-## Re-submission following email from Swetlana Herbrandt requesting fixes:
+## Re-submission following email from Gregor Seyer with the following question:
+    "is this package going to receive many updates regarding the data,
+    or is the data provided already complete?"
 
-* PLEASE READ
+* BEAST is updated at most annually, so we expected very rare updates.
 
-* Message: Size of tarball: 7274204 bytes
+* Previous message: Size of tarball: 7274204 bytes
            Not more than 5 MB for a CRAN package, please.
   - We are aware the package size exceeds the maximum. We have tried our
     best to reduce the size, for example by dropping code normally used
@@ -15,19 +17,6 @@
     CRAN that depend on 'BeastJar' whose function is solely to be a
     repository of shared (Java) code to be used by those other packages,
     and is not expected to require frequent updates.
-
-* Message: Please write package names, software names and API names in single quotes
-           (e.g. 'BEAST') in Title and Description.
-  - Fixed.
-
-* Message:  If there are references describing the (theoretical
-            background of) methods in your package, please add these in the
-            Description field of your DESCRIPTION file in the [appropriate] form
-   - Fixed.  Now included in DESCRIPTION is:
-     Suchard et al (2018) <doi:10.1093/ve/vey016>
-
-* Message: Please add small executable examples in your Rd-files.
-   - We now include a small executable example.
 
 ## Test environments
 * local OS X install, R 4.0.0
