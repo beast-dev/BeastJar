@@ -21,7 +21,7 @@
 #'   rJava::J("dr.math.MathUtils")$setSeed(rJava::.jlong(seed));
 #'
 #'   # Set up simple model - Normal(mean = 1, sd = 2)
-#'   mean <- 1; sd = 2
+#'   mean <- 1; sd <- 2
 #'   distribution <- rJava::.jnew("dr.math.distributions.NormalDistribution",
 #'                                 as.numeric(mean), as.numeric(sd))
 #'   model <- rJava::.jnew("dr.inference.distribution.DistributionLikelihood",
