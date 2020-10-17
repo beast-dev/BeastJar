@@ -1,7 +1,7 @@
 Package: BeastJar
 Type: Package
 Title: JAR Dependency for MCMC Using 'BEAST'
-Version: 1.10.5
+Version: 1.10.6
 Authors@R: c(
     person("Marc A.", "Suchard", email = "msuchard@ucla.edu", role = c("aut","cre","cph")),
     person("Andrew", "Rambaut", role = "cph"),
@@ -23,5 +23,6 @@ Imports:
 URL: https://github.com/beast-dev/BeastJar
 Copyright: See file COPYRIGHTS
 RoxygenNote: 7.1.1
+SystemRequirements: Java (>= 1.8)
 Suggests:
     testthat

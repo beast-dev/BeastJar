@@ -95,11 +95,18 @@ simulateNormalDistribution <- function(mean = 0,
 }
 
 test_that("Simulate normal random variable", {
-  trace <- simulateNormalDistribution(mean = 1,
-                                      sd = 2,
-                                      chainLength = 1000,
-                                      subSampleFrequency = 1,
-                                      seed = 666)
-  expect_equal(mean(trace), 1, tolerance = 1E-1)
-  expect_equal(sqrt(var(trace)), 2, tolerance = 1E-1)
+  if (supportsJava8()) {
+    trace <- simulateNormalDistribution(mean = 1,
+                                        sd = 2,
+                                        chainLength = 1000,
+                                        subSampleFrequency = 1,
+                                        seed = 666)
+    expect_equal(mean(trace), 1, tolerance = 1E-1)
+    expect_equal(sqrt(var(trace)), 2, tolerance = 1E-1)
+  }
+})
+
+test_that("Test supports function", {
+  expect_true(is.logical(supportsJava8()))
+  cat(supportsJava8())
 })
