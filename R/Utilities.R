@@ -12,8 +12,6 @@
 supportsJava8 <- function() {
   javaVersionText <-
     rJava::.jcall("java/lang/System", "S", "getProperty", "java.version")
-  javaVersionText <- "1.8.4"
-
   majorVersion <- as.integer(regmatches(
     javaVersionText,
     regexpr(pattern = "^\\d+", text = javaVersionText)
@@ -24,6 +22,9 @@ supportsJava8 <- function() {
     majorVersion <- as.integer(regmatches(twoDigitVersion,
                                           regexpr("\\d+$", text = twoDigitVersion)))
   }
-
-  return (majorVersion >= 8)
+  support <- majorVersion >= 8
+  warning(paste0("Using JVM version ",
+                 javaVersionText,
+                 " (>= 8? ", support, ")"))
+  return (support)
 }
