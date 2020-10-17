@@ -4,10 +4,15 @@ on:
     - cron: '0 1 * * *' # every night at 1 am UTC
 
 jobs:
-  delete-artifacts:
+  remove-old-artifacts:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
-      - uses: kolpav/purge-artifacts-action@v1
-        with:
-          token: $
-          expire-in: 7days # Set this to 0 to delete all artifacts
+    - name: Remove old artifacts
+      uses: c-hive/gha-remove-artifacts@v1
+      with:
+        age: '7 days'
+        # Optional inputs
+        # skip-tags: true
+        skip-recent: 1
