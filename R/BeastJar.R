@@ -111,8 +111,7 @@
 #'   cat(operatorAnalysisString)
 #'
 #'   # Report posterior quantities
-#'   mean(sample)
-#'   sd(sample)
+#'   c(mean(sample), sd(sample))
 #' }
 NULL
 

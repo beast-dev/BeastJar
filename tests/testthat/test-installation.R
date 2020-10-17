@@ -108,5 +108,4 @@ test_that("Simulate normal random variable", {
 
 test_that("Test supports function", {
   expect_true(is.logical(supportsJava8()))
-  cat(supportsJava8())
 })
