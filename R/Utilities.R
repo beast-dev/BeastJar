@@ -23,7 +23,7 @@ supportsJava8 <- function() {
                                           regexpr("\\d+$", text = twoDigitVersion)))
   }
   support <- majorVersion >= 8
-  warning(paste0("Using JVM version ",
+  message(paste0("Using JVM version ",
                  javaVersionText,
                  " (>= 8? ", support, ")"))
   return (support)
