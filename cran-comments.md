@@ -25,7 +25,7 @@
 * local OS X install, R 4.0.0
 * ubuntu 14.04 (on travis-ci), R 3.6.3, gcc 4.8.4 and gcc 6.0
 * win-builder (devel and release)
-* rhub
+* rhub, solaris-x86-patched
 
 ## R CMD check results
 * There were no ERRORs or WARNINGs
