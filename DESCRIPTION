@@ -1,7 +1,7 @@
 Package: BeastJar
 Type: Package
 Title: JAR Dependency for MCMC Using 'BEAST'
-Version: 1.10.6
+Version: 10.4.999
 Authors@R: c(
     person("Marc A.", "Suchard", email = "msuchard@ucla.edu", role = c("aut","cre","cph")),
     person("Andrew", "Rambaut", role = "cph"),

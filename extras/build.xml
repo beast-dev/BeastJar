@@ -52,7 +52,7 @@
         <fileset dir="${lib}" includes="mpj.jar"/>
         <!-- <fileset dir="${lib}" includes="JRI.jar"/> -->
         <fileset dir="${lib}" includes="colt.jar"/>
-        <fileset dir="${lib}" includes="beagle.jar"/>
+        <fileset dir="${lib}" includes="beagle.jar"/>        
         <fileset dir="${lib}" includes="EJML-core-0.30.jar"/>
         <fileset dir="${lib}" includes="lbfgs4j-0.2.1.jar"/>
         <fileset dir="${lib}" includes="EJML-dense64-0.30.jar"/>
@@ -80,8 +80,10 @@
                memoryinitialsize="256m"
                memorymaximumsize="1024m">
 <!--           	<src path="${src}"/> -->
+			<include name="beagle/basta/**"/>
            <!-- <include name="dr/app/beast/**"/> -->
      <!--       <include name="dr/app/beauti/**"/> -->
+<!-- 	    	<include name="dr/app/beauti/components/interfaces/**"/> -->
             <!--<include name="dr/app/bss/**"/> -->
             <!--<include name="dr/app/checkpoint/**"/>-->
             <!-- <include name="dr/app/gui/**"/> -->
@@ -90,9 +92,14 @@
     <!--        <include name="dr/app/seqgen/**"/> -->
             <!-- <include name="dr/app/plugin/**"/> -->
          <!--   <include name="dr/app/realtime/**"/>-->
-          <!--  <include name="dr/app/tools/**"/>-->
-            <include name="dr/app/util/**"/>
+          <!--  <include name="dr/app/tools/**"/>-->         
             <!-- <include name="dr/app/treestat/**"/> -->
+<!--             <include name="dr/app/bss/Utils.java"/> -->
+			<include name="dr/app/checkpoint/**"/>
+			<include name="dr/app/beast/BeastVersion.java"/>
+			<include name="dr/app/beast/BeagleVersion.java"/>
+            <include name="dr/app/beauti/components/BeautiModelIDProvider.java"/>
+            <include name="dr/app/beauti/components/BeautiParameterIDProvider.java"/>
             <include name="dr/app/beast/BeastVersion.java"/>
             <include name="dr/app/beast/BeastParser.java"/>
             <include name="dr/app/tools/BeastParserDoc.java"/>
@@ -109,7 +116,7 @@
 			<include name="dr/app/gui/chart/ChartRuntimeException.java"/>
 
 
-			<exclude name="dr/evomodel/branchmodel/lineagespecific/**"/>
+<!-- 			<exclude name="dr/evomodel/branchmodel/lineagespecific/**"/> -->
 			<exclude name="dr/evoxml/MicrosatelliteSimulatorParser.java"/>
 
 			<exclude name="dr/geo/contouring/ContourWithR.java"/>
@@ -131,6 +138,7 @@
             <include name="dr/util/**"/>
             <include name="dr/xml/**"/>
             <include name="dr/geo/**"/>
+            <exclude name="dr/evomodel/antigenic/phyloclustering/**"/>
             <!-- complie JUnit test classes -->
            <!-- <include name="test/dr/**"/>-->
 
@@ -152,6 +160,7 @@
             <fileset dir="${build}">
                 <include name="dr/app/beast/**/*.class"/>
                <!-- <include name="dr/app/beauti/**/*.class"/> -->
+				<include name="dr/app/beauti/components/interfaces/*.class"/>               
 <!--                <include name="dr/app/bss/**/*.class"/> -->
 <!--                <include name="dr/app/checkpoint/**"/> -->
 <!--                <include name="dr/app/gui/**/*.class"/> -->
@@ -161,6 +170,11 @@
 <!--                <include name="dr/app/util/**/*.class"/> -->
 <!--                <include name="dr/app/tools/**/*.class"/> -->
 <!--                <include name="dr/app/treestat/**/*.class"/> -->
+				<include name="dr/app/checkpoint/**/*.class"/>
+				<include name="dr/app/beast/BeastVersion.class"/>
+				<include name="dr/app/beast/BeagleVersion.class"/>
+				<include name="dr/app/beauti/components/BeautiModelIDProvider.class"/>
+				<include name="dr/app/beauti/components/BeautiParameterIDProvider.class"/>
                 <include name="dr/app/beagle/**/*.class"/>
                 <!-- include beagle -->
                 <include name="dr/evolution/**/*.class"/>
@@ -196,7 +210,7 @@
             <!-- <zipgroupfileset dir="${lib}" includes="mpj.jar"/> -->
             <!-- <zipgroupfileset dir="${lib}" includes="JRI.jar"/> -->
             <zipgroupfileset dir="${lib}" includes="colt.jar"/>
-            <zipgroupfileset dir="${lib}" includes="beagle.jar"/>
+            <zipgroupfileset dir="${lib}" includes="beagle.jar"/>            
             <zipgroupfileset dir="${lib}" includes="EJML-core-0.30.jar"/>
             <zipgroupfileset dir="${lib}" includes="lbfgs4j-0.2.1.jar"/>
             <zipgroupfileset dir="${lib}" includes="EJML-dense64-0.30.jar"/>
