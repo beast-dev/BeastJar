@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 extras/build
+
+.DS_Store
