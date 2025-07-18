@@ -1,7 +1,7 @@
 Package: BeastJar
 Type: Package
 Title: JAR Dependency for MCMC Using 'BEAST'
-Version: 10.4.999
+Version: 10.5.0
 Authors@R: c(
     person("Marc A.", "Suchard", email = "msuchard@ucla.edu", role = c("aut","cre","cph")),
     person("Andrew", "Rambaut", role = "cph"),
@@ -17,7 +17,6 @@ Description: Provides JAR to perform Markov chain Monte Carlo (MCMC) inference u
     CRAN.
 License: Apache License 2.0
 Encoding: UTF-8
-LazyData: true
 Imports:
     rJava
 URL: https://github.com/beast-dev/BeastJar
