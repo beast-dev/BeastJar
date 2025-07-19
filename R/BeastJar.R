@@ -1,4 +1,5 @@
-
+#' @keywords internal
+"_PACKAGE"
 
 #' BeastJar
 #'
@@ -6,7 +7,6 @@
 #' to facilitate Markov chain Monte Carlo sampling techniques including Hamiltonian Monte Carlo,
 #' bouncy particle sampling and zig-zag sampling.
 #'
-#' @docType package
 #' @name BeastJar
 #' @import rJava
 #' @examples

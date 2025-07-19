@@ -1,6 +1,6 @@
 #' Determine if Java virtual machine supports Java
 #'
-#' Tests Java virtal machine (JVM) java.version system property to check if version >= 8.
+#' Tests Java virtual machine (JVM) java.version system property to check if version >= 8.
 #'
 #' @return
 #' Returns TRUE if JVM supports Java >= 8.

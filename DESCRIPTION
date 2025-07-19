@@ -17,11 +17,14 @@ Description: Provides JAR to perform Markov chain Monte Carlo (MCMC) inference u
     packages using CRAN.
 License: Apache License 2.0
 Encoding: UTF-8
+Depends:
+    R (>= 3.5.0)
 Imports:
     rJava
 URL: https://github.com/beast-dev/BeastJar
 Copyright: See file COPYRIGHTS
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 SystemRequirements: Java (>= 1.8)
 Suggests:
     testthat
+Language: en-US
