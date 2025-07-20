@@ -35,4 +35,4 @@
       java   7.7Mb
 
 ## Downstream dependencies
-There are currently no downstream dependencies.
+* 'EvidenceSynthesis'

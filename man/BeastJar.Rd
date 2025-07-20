@@ -37,7 +37,7 @@ if (supportsJava8()) {
   joint$add(rJava::.jcast(model, "dr.inference.model.Likelihood"))
   joint$add(rJava::.jcast(dummy, "dr.inference.model.Likelihood"))
 
-  joint <- rJava::new(rJava::J("dr.inference.model.CompoundLikelihood"), joint)
+  joint <- rJava::new(rJava::J("dr.inference.model.CompoundLikelihood"), 1L, joint)
 
   # Specify auto-adapting random-walk Metropolis-Hastings transition kernel
   operator <- rJava::.jnew("dr.inference.operators.RandomWalkOperator",
