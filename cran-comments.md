@@ -1,4 +1,4 @@
-## New release of BEAST X (July, 2025 in Nature Methods)
+## Minor patch to BEAST X (July, 2025 in Nature Methods)
 
 * This submission packages the latest release of the popular phylogenetics
   software BEAST X to make it available to R users
