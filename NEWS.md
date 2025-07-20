@@ -4,7 +4,7 @@ Changes:
   1. Update to BEAST X 'hmc-clock' to patch gradients
   2. Add custom spell-check dictionary
   3. Update copyright year
-
+  4. Reducce CPU vs elapsed time in examples
 
 BeastJar v10.5.0
 ================

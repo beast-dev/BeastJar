@@ -2,8 +2,12 @@
 
 * This submission packages the latest release of the popular phylogenetics
   software BEAST X to make it available to R users
+  
+* Fixed 2 NOTEs:
+  - added 'Baele' to custom spell-check dictionary
+  - reduced multi-core CPU usage in examples to single core
 
-* occasional NOTE: installed size is  7.8Mb
+* Remains occasional NOTE: installed size is  7.8Mb
   - We are aware the package size exceeds the maximum. We have tried our
     best to reduce the size, for example by dropping code normally used
     for a graphical user interface. However, we cannot reduce the size
