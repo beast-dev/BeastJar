@@ -116,7 +116,7 @@
 			<include name="dr/app/gui/chart/ChartRuntimeException.java"/>
 
 
-<!-- 			<exclude name="dr/evomodel/branchmodel/lineagespecific/**"/> -->
+			<exclude name="dr/evomodel/branchmodel/lineagespecific/**"/>
 			<exclude name="dr/evoxml/MicrosatelliteSimulatorParser.java"/>
 
 			<exclude name="dr/geo/contouring/ContourWithR.java"/>
