@@ -109,3 +109,11 @@ test_that("Simulate normal random variable", {
 test_that("Test supports function", {
   expect_true(is.logical(supportsJava8()))
 })
+
+test_that("Present of CompoundGradient", {
+  if (supportsJava8()) {
+    array <- rJava::.jnew("java.util.ArrayList")
+    compoundGradient <- rJava::new(rJava::J("dr.inference.hmc.CompoundGradient"), array)
+    expect_equal(compoundGradient$getGradientLogDensity(), numeric(0))
+  }
+})
